@@ -25,7 +25,7 @@ class IndexController extends AbstractActionController
         $sm = $this->getServiceLocator();
         $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
 
-        $repositories = $mapper->pagination($page, 15, $query, 'created_at', 'DESC');
+        $repositories = $mapper->pagination($page, $pageSize, $query, 'created_at', 'DESC');
 
         return array(            
             'repositories' => $repositories,
