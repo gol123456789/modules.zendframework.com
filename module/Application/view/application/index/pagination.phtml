@@ -5,14 +5,19 @@
             <div class="pagination pull-right">
                 <ul>
                       <!-- Page Size links -->
-                    <li>
-                        <a href="<?php echo $this->url('home/query',  array('page'=>1, 'page_size' =>15, 'query' => $query)); ?>" class="paginationcount">&lt;&lt; 15</a>
+                       <?php $pageSize = (int)$pageSize; 
+                              $selectedClassName = 'pagesize-selected zf-green'; ?>
+                      <li>
+                        <a href="<?php $selected = ($pageSize === 15) ? $selectedClassName : '';  
+                        echo $this->url('home/query',  array( 'page'=>1, 'page_size' =>15, 'query' => $query)); ?>" class="paginationcount <?=$selected ?>">15</a>
                     </li>
                    <li>
-                        <a href="<?php echo $this->url('home/query', array('page'=>1, 'page_size' =>45, 'query' => $query)); ?>" class="paginationcount">&lt;&lt; 45</a>
+                        <a href="<?php $selected = ($pageSize === 50) ? $selectedClassName : '';
+                        echo $this->url('home/query', array( 'page'=>1, 'page_size' =>50, 'query' => $query)); ?>" class="paginationcount <?=$selected ?>">50</a>
                     </li>
                      <li>
-                        <a href="<?php echo $this->url('home/query', array('page'=>1, 'page_size' =>45, 'query' => $query)); ?>" class="paginationcount">&lt;&lt; 100</a>
+                        <a href="<?php $selected = ($pageSize === 100) ? $selectedClassName : '';
+                        echo $this->url('home/query', array( 'page'=>1, 'page_size' =>100, 'query' => $query)); ?>" class="paginationcount  <?=$selected ?>">100</a>
                     </li>
                                   
 
