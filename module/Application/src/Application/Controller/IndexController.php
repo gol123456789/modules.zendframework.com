@@ -19,16 +19,18 @@ class IndexController extends AbstractActionController
     public function indexAction()
     {
         $query =  $this->params()->fromQuery('query', null);
-
+        //we do page sizes now
+        $pageSize =  $this->params()->fromQuery('page_size', 15);
         $page = (int) $this->params()->fromRoute('page', 1);
         $sm = $this->getServiceLocator();
         $mapper = $this->getServiceLocator()->get('zfmodule_mapper_module');
 
         $repositories = $mapper->pagination($page, 15, $query, 'created_at', 'DESC');
 
-        return array(
+        return array(            
             'repositories' => $repositories,
-            'query' => $query,
+            'query' => $query,          
+            'pageSize' => $pageSize,
         );
     }
 

@@ -4,6 +4,18 @@
         <div class="row-fluid">
             <div class="pagination pull-right">
                 <ul>
+                      <!-- Page Size links -->
+                    <li>
+                        <a href="<?php echo $this->url('home/query',  array('page'=>1, 'page_size' =>15, 'query' => $query)); ?>" class="paginationcount">&lt;&lt; 15</a>
+                    </li>
+                   <li>
+                        <a href="<?php echo $this->url('home/query', array('page'=>1, 'page_size' =>45, 'query' => $query)); ?>" class="paginationcount">&lt;&lt; 45</a>
+                    </li>
+                     <li>
+                        <a href="<?php echo $this->url('home/query', array('page'=>1, 'page_size' =>45, 'query' => $query)); ?>" class="paginationcount">&lt;&lt; 100</a>
+                    </li>
+                                  
+
                     <?php if(isset($this->previous)): ?>
                     <!-- First page link -->
                     <li>

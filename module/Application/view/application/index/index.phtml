@@ -9,8 +9,9 @@
               </form>
             </div>
             <?php
+            //added page_size param
             $this->inlineScript()->appendScript('
-                $(\'#live-search input[name="query"]\').liveSearch({url: "/live-search?query="});
+                $(\'#live-search input[name="query"]\').liveSearch({url: "/live-search?page_size='.$this->pageSize.'&query="});
             ');?>
 
           </div>
